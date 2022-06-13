@@ -24,8 +24,7 @@ $(error $(ERROR_BODY))
 endif
 
 MKFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
-CURRENT_DIR := $(notdir $(patsubst %/,%,$(dir $(MKFILE_PATH))))
-PROJ_NAME=$(CURRENT_DIR)
+PROJ_NAME=hello-pru
 LINKER_COMMAND_FILE=./AM57xx_PRU.cmd
 LIBS= #No libraries in this project. See RPMsg_Echo_Interrupt for example usage
 INCLUDE=--include_path=../../../include --include_path=../../../include/am572x_2_0
