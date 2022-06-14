@@ -23,10 +23,9 @@ endef
 $(error $(ERROR_BODY))
 endif
 
-MKFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 PROJ_NAME=hello-pru
-LINKER_COMMAND_FILE=./AM57xx_PRU.cmd
-LIBS= #No libraries in this project. See RPMsg_Echo_Interrupt for example usage
+LINKER_COMMAND_FILE=./AM57xx_PRU_intc_rscTbl.cmd
+LIBS=--library=../../../lib/rpmsg_lib.lib
 INCLUDE=--include_path=../../../include --include_path=../../../include/am572x_2_0
 STACK_SIZE=0x100
 HEAP_SIZE=0x100
@@ -91,3 +90,4 @@ clean:
 
 # Includes the dependencies that the compiler creates (-ppd and -ppa flags)
 -include $(OBJECTS:%.object=%.pp)
+
